@@ -1,0 +1,96 @@
+/* login.css */
+
+/* Add custom styles here */
+
+/* Center the login container */
+.login-root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Style the login box */
+.box-root {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Style the login background */
+.loginbackground {
+  background-color: #fff;
+}
+
+/* Style the login heading */
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+/* Style the form container */
+.formbg {
+  background-color: #f7f7f7;
+  padding: 24px;
+  border-radius: 4px;
+}
+
+/* Style the form label */
+label {
+  font-weight: bold;
+}
+
+/* Style the form input fields */
+.form-control {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  width: 100%;
+}
+
+/* Style the form submit button */
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Style the footer links */
+.footer-link a {
+  margin-right: 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.footer-link a:last-child {
+  margin-right: 0;
+}
+
+/* Style the profile picture */
+.profile-picture {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile-picture svg {
+  width: 100%;
+  height: 100%;
+  fill: blue;
+}
+
+/* Media query for small screens */
+@media (max-width: 767px) {
+  /* Center the login container vertically */
+  .login-root {
+    align-items: flex-start;
+  }
+  /* Add some spacing for small screens */
+  .formbg {
+    margin-top: 20px;
+  }
+}

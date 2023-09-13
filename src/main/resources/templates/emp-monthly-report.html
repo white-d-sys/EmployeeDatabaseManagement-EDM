@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:tr="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Employee Attendance</title>
+  <link rel="stylesheet" type="text/css" href="empsal.css">
+</head>
+<body>
+<center>
+  <h1>Employee Salary</h1>
+</center>
+<table th:object="${payrollStruct}">
+  <thead>
+  <tr>
+    <th>Employee ID</th>
+    <th>Employee Name</th>
+    <th>Paid Leave</th>
+    <th>Unpaid Leave</th>
+    <th>Salary</th>
+    <th>View</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr tr:each="payroll :${payrollStruct}">
+    <td th:text="${payroll.employee.id}"></td>
+    <td th:text="${payroll.month}"></td>
+    <td th:text="${payroll.monthlyPresent}"></td>
+    <td th:text="${payroll.unpaidLeave}"></td>
+    <td th:text="${payroll.salary}"></td>
+       <td><button type="show" class="submit-btn">Show</button></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

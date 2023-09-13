@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employee Salary Details</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/pay.css}">
+</head>
+<body>
+<h1>Employee Salary Details</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Department ID</th>
+        <th>Department</th>
+        <th>Base Salary</th>
+        <th>HRA(In %)</th>
+        <th>DA (In %)</th>
+        <th>Bonus(In %)</th>
+        <th>PF(In %)</th>
+        <th>ESIC(In %)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <div th:object="${employees}">
+    <tr th:each="employee : ${employees}" >
+        <td th:text="${employee.id}"></td>
+        <td th:text="${employee.department}"></td>
+        <td th:text="${employee.payrollStruct.baseSalary}"></td>
+        <td th:text="${employee.payrollStruct.HRA}"></td>
+        <td th:text="${employee.payrollStruct.DA}"></td>
+        <td th:text="${employee.payrollStruct.bonus}"></td>
+        <td th:text="${employee.payrollStruct.PF}"></td>
+        <td th:text="${employee.payrollStruct.ESIC}"></td>
+    </tr>
+    </div>
+    </tbody>
+</table>
+</body>
+</html>

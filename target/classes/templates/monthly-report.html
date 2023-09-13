@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Attendance Report</title>
+  <link rel="stylesheet" th:href="@{/empcalender.css}">
+  <!-- Add your CSS and other header elements here -->
+</head>
+<body>
+<h1  th:text="${month}">Attendance Report For</h1><h1></h1>
+<table border="2px">
+  <tr>
+    <th>Employee</th>
+    <th th:each="number : ${#numbers.sequence(1, n)}" th:text="${number}" ></th>
+  </tr>
+
+  <tr th:each="attendanceDataMap : ${attendanceData}">
+    <td >
+      <span th:text="${attendanceDataMap.key}"></span>
+    </td>
+    <td th:each="dateAttendanceEntry : ${attendanceDataMap.value}" th:text="${dateAttendanceEntry.type}">
+    </td>
+  </tr>
+</table>
+<!-- Add other HTML elements as needed -->
+</body>
+</html>

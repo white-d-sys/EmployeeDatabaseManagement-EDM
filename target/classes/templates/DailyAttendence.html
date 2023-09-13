@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Employee Attendance</title>
+    <link rel="stylesheet" type="text/css" href="/att.css">
+</head>
+<body>
+<h1>Employee Attendance</h1>
+<form action="/attendance/save" method="post" th:object="${monthly}">
+    <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+    <table>
+        <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Date<p th:text="${daily}"></p></th>
+            <th>Attendance</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="struct, objectIndex : ${monthly.dailyAttendanceList}">
+            <!-- Hidden fields for employee.id, employee.name, and date -->
+            <input type="hidden" th:field="*{dailyAttendanceList[__${objectIndex.index}__].employee.id}" />
+            <input type="hidden" th:field="*{dailyAttendanceList[__${objectIndex.index}__].employee.name}" />
+            <input type="hidden" th:field="*{dailyAttendanceList[__${objectIndex.index}__].date}" />
+
+            <td th:text="${struct.employee.id}"></td>
+            <td th:text="${struct.employee.name}"></td>
+            <td th:text="${struct.date}"></td>
+            <td>
+                <select name="mark" th:field="*{dailyAttendanceList[__${objectIndex.index}__].mark}">
+                    <option th:each="status : ${T(com.employee.EmployeeDatabaseManagement.EDM.model.AttendanceMark).values()}" th:value="${status}" th:text="${status.type}"></option>
+                </select>
+            </td>
+        </tr>
+        <!-- Add more rows for other employees as needed -->
+        </tbody>
+    </table>
+
+    <input type="submit" value="save">
+</form>
+</body>
+</html>

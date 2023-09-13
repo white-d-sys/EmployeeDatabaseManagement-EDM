@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Department List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/depview.css}" href="/static/depview.css">
+</head>
+<body>
+    <h1>Department List</h1>
+    <div th:object="${department}">
+    <table>
+        <thead>
+            <tr>
+                <th>Department ID</th>
+                <th>Department Name</th>
+                <th></th>
+                <th></th>
+                
+               
+            </tr>
+        </thead>
+        <tbody>
+        <tr th:each="dept : ${department}">
+                <td th:text="${dept.id}"></td>
+                <td th:text="${dept.department}"></td>
+                <td><a th:href="${'/app/department/update/'+dept.id}"><button >Update</button></a></td>
+            </tr>
+            <!-- Add more department data as needed -->
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>

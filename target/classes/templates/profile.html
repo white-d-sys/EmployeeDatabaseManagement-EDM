@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Employee Profile</title>
+  <style>
+    body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        .profile-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+            margin-top: 0;
+            padding-top: 20px;
+        }
+
+        h2 {
+            margin-top: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .profile-field {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .profile-field label {
+            font-weight: bold;
+        }
+
+        .profile-picture {
+            display: block;
+            margin: 0 auto;
+            background-color: #f4e0c1;
+            border-radius: 50%;
+            padding: 10px;
+            width: 120px;
+            height: 120px;
+        }
+
+        /* Additional styles for the profile picture */
+        .profile-picture svg {
+            width: 100%;
+            height: 100%;
+            fill: blue;
+        }
+
+        /* CSS for highlighting emergency contact */
+        .emergency-contact {
+            color: red;
+            font-weight: bold;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="profile-container">
+  <div class="profile-picture">
+    <!-- Profile picture SVG code (same as before) -->
+    <!-- ... -->
+  </div>
+  <h1  th:text="${employee.name}">Employee Profile</h1>
+
+  <div th:object="${employee}">
+    <h2>Personal Information</h2>
+    <div class="profile-field">
+      <label>Name:</label>
+      <span th:text="${employee.name}"></span>
+    </div>
+    <div class="profile-field">
+      <label>Gender:</label>
+      <span th:text="${employee.gender}">Male</span>
+    </div>
+    <!-- Add more personal information fields as needed -->
+
+    <!-- Contact Information Section -->
+    <h2>Contact Information</h2>
+    <div class="profile-field">
+      <label>Email:</label>
+      <span th:text="${employee.email}"></span>
+    </div>
+    <div class="profile-field">
+      <label>Contact Number:</label>
+      <span th:text="${employee.number}"></span>
+    </div>
+    <!-- Add more contact information fields as needed -->
+
+    <!-- Employment Information Section -->
+    <h2>Employment Information</h2>
+    <div class="profile-field">
+      <label>Employee ID:</label>
+      <span th:text="${employee.id}"></span>
+    </div>
+    <div class="profile-field">
+      <label>Position:</label>
+      <span th:text="${employee.department.department}"></span>
+    </div>
+    <!-- Add more employment information fields as needed -->
+
+    <!-- Other Information Section -->
+    <h2>Other Information</h2>
+    <div class="profile-field">
+      <label>Aadhar Number:</label>
+      <span th:text="${employee.aadharNo}"></span>
+    </div>
+    <div class="profile-field">
+      <label>PAN Number:</label>
+      <span th:text="${employee.panNo}"></span>
+    </div>
+    <!-- Add more other information fields as needed -->
+
+    <!-- Emergency Contact Section -->
+    <h2>Emergency Contact</h2>
+    <div class="profile-field">
+      <label>Relationship:</label>
+      <span th:text="${employee.employeeInfo.relationship}">Spouse</span>
+    </div>
+    <div class="profile-field">
+      <label>Health Condition:</label>
+      <span th:text="${employee.employeeInfo.healthCondition}"></span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Department Form</title>
+  <link rel="stylesheet" type="text/css" href="department.css" th:href="@{/department.css}">
+</head>
+<!--<div th:replace ="dashboard::header">-->
+<div class="form-container">
+  <h1>Department Information</h1>
+  <form method="get" th:action="@{/app/salary/update}" th:object="${department}">
+    <div>
+      <div>
+        <label for="deptID">Department ID:</label>
+        <input type="text" id="deptID" name="deptID" readonly th:field="${department.id}" >
+      </div>
+    </div>
+    <div>
+      <label for="deptName">Department Name:</label>
+      <input type="text" id="deptName" name="deptName" th:field="${department.department}" required>
+<!--      <input type="hidden"  name="deptName" th:field="${department.payrollstruct}" required>-->
+
+    </div>
+    <div>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</div>
+</div>
+
+</html>

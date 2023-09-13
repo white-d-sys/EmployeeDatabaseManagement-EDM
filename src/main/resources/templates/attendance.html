@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Employee Attendance</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/dep.css}">
+</head>
+<body>
+<div class="center-container">
+  <div class="container">
+    <center>
+      <h1>Date</h1>
+    </center>
+    <form th:action="@{/attendance/create-attendence}" method="post" th:object="${date}">
+      <input type="date" name="date" id="" th:field="${date.date}" required>
+      <br/>
+      <br/>
+      <br/>
+      <div>
+        <input type="submit" class="submit-btn">
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>
